@@ -15,6 +15,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/register' : (context) => RegisterScreen()
       },
+      theme: ThemeData(
+          primarySwatch: Colors.lightGreen,
+      ),
       home: LoginScreen(),
     );
   }
