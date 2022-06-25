@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gsb_day03/pages/accounts/login.dart';
 import 'package:gsb_day03/pages/accounts/register.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.lightGreen,
       ),
       home: LoginScreen(),
+      builder: EasyLoading.init(),
     );
   }
 }
