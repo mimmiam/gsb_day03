@@ -8,7 +8,7 @@ class AlertHelper{
   }){
     SnackBar snackBar = SnackBar(
       backgroundColor: isError == true ? Colors.red : Colors.green,
-        content: Text('complete')
+      content: Text(msg),
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }

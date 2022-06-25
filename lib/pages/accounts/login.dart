@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gsb_day03/components/user_form.dart';
+import 'package:gsb_day03/models/http_status_msg.dart';
 import 'package:gsb_day03/services/user_service.dart';
+import 'package:gsb_day03/utils/alert_helper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -38,7 +40,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   _submit(String username, String password) async{
     UserService userService = UserService();
-    await userService.login(username: username, password: password);
+    HttpStatusMsg htm = await userService.login(username: username, password: password);
+    if(htm.success){
+      print(htm.result);
+      AlertHelper.showBar(context: context, msg: 'Welcome to Inventory App');
+    }else{
+      AlertHelper.showBar(context: context, msg: htm.err!, isError: true);
+    }
   }
 
 }
