@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
+        '/login' : (context) => LoginScreen(),
         '/register' : (context) => RegisterScreen(),
         '/home' : (context) => HomeScreen()
       },
