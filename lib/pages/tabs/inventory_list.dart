@@ -30,8 +30,14 @@ class _InventoryListScreenState extends State<InventoryListScreen> {
               return ListTile(
                 leading: Icon(Icons.ad_units),
                 title: Text(inv.description),
-                subtitle: Text('$updateDate'),
+                subtitle: Text(updateDate),
                 trailing: Text('$price Bath'),
+                onTap: () {
+                  Navigator.pushNamed(context,
+                      '/update',
+                      arguments: inv
+                  ).then((value) => setState(() {}));
+                },
               );
             });
           }
@@ -41,7 +47,9 @@ class _InventoryListScreenState extends State<InventoryListScreen> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Navigator.pushNamed(context, '/add');
+          Navigator.pushNamed(context, '/add').then(
+                  (value) => setState(() {})
+          );
         },
       ),
     );

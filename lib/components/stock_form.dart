@@ -30,6 +30,7 @@ class _StockFormState extends State<StockForm> {
           children: [
             ListTile(
               title: TextFormField(
+                initialValue: widget.inv.description,
                 onSaved: (String? value) {
                   widget.inv.description = value!;
                 },
@@ -39,6 +40,7 @@ class _StockFormState extends State<StockForm> {
             ),
             ListTile(
               title: TextFormField(
+                initialValue: widget.inv.stock.toString(),
                 onSaved: (String? value) {
                   widget.inv.stock = double.parse(value!);
                 },
@@ -49,6 +51,7 @@ class _StockFormState extends State<StockForm> {
             ),
             ListTile(
               title: TextFormField(
+                initialValue: widget.inv.price.toString(),
                 onSaved: (String? value) {
                   widget.inv.price = double.parse(value!);
                 },
