@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:gsb_day03/models/inventory.dart';
 import 'package:gsb_day03/services/inventory_service.dart';
 
@@ -22,11 +23,15 @@ class _InventoryListScreenState extends State<InventoryListScreen> {
               itemCount: inventories.length,
                 itemBuilder: (BuildContext context, int i){
                 Inventory inv = inventories[i]!;
+                var f = NumberFormat("#,##0.00");
+                var d = DateFormat.yMMMEd();
+                String price = f.format(inv.price);
+                String updateDate = d.format(inv.updatedDate!);
               return ListTile(
                 leading: Icon(Icons.ad_units),
                 title: Text(inv.description),
-                subtitle: Text(inv.createdDate.toString()),
-                trailing: Text(inv.stock.toString()),
+                subtitle: Text('$updateDate'),
+                trailing: Text('$price Bath'),
               );
             });
           }

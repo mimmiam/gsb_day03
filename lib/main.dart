@@ -4,9 +4,12 @@ import 'package:gsb_day03/pages/accounts/login.dart';
 import 'package:gsb_day03/pages/accounts/register.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:gsb_day03/utils/local_storage.dart';
-
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
+  Intl.defaultLocale = 'th';
+  initializeDateFormatting();
   runApp(const MyApp());
 }
 
