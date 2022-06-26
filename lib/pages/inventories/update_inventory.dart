@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gsb_day03/components/stock_form.dart';
+import 'package:gsb_day03/models/http_status_msg.dart';
 import 'package:gsb_day03/models/inventory.dart';
+import 'package:gsb_day03/services/inventory_service.dart';
+import 'package:gsb_day03/utils/alert_helper.dart';
+import 'package:gsb_day03/utils/loading_progress.dart';
 
 class UpdateInventory extends StatefulWidget {
   const UpdateInventory({Key? key}) : super(key: key);
@@ -30,6 +34,15 @@ class _UpdateInventoryState extends State<UpdateInventory> {
     );
   }
   _submit(Inventory inv) {
-
+    LoadingProgress.inProgress(() async{
+      InventoryService inventoryService = InventoryService();
+      HttpStatusMsg htm = await inventoryService.update(inv);
+      if(htm.success){
+        AlertHelper.showBar(context: context, msg: 'update complete');
+        Navigator.pop(context);
+      }else{
+        AlertHelper.showBar(context: context, msg: htm.err!, isError: true);
+      }
+    });
   }
 }
