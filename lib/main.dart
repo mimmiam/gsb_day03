@@ -3,6 +3,7 @@ import 'package:gsb_day03/home.dart';
 import 'package:gsb_day03/pages/accounts/login.dart';
 import 'package:gsb_day03/pages/accounts/register.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:gsb_day03/pages/inventories/add_inventory.dart';
 import 'package:gsb_day03/utils/local_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login' : (context) => LoginScreen(),
         '/register' : (context) => RegisterScreen(),
-        '/home' : (context) => HomeScreen()
+        '/home' : (context) => HomeScreen(),
+        '/add' : (context) => AddInventoryScreen(),
       },
       theme: ThemeData(
           primarySwatch: Colors.lightGreen,

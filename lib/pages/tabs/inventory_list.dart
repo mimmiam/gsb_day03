@@ -40,7 +40,9 @@ class _InventoryListScreenState extends State<InventoryListScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/add');
+        },
       ),
     );
   }
