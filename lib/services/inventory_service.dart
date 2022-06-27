@@ -91,4 +91,29 @@ class InventoryService{
     htm.err = 'Something went wrong';
     return htm;
   }
+
+  Future<HttpStatusMsg> delete(int id) async {
+    Uri uri = Uri.parse('$HOST/inventory/$id');
+    String? token = await localStorage.getToken();
+    HttpStatusMsg htm = HttpStatusMsg();
+    if (token == null) {
+      htm.success = false;
+      htm.err = "Token is null";
+      return htm;
+    }
+    final response = await http.delete(
+      uri,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $token'
+      },
+    );
+    if (response.statusCode == 200) {
+      htm.success = true;
+      return htm;
+    }
+    htm.success = false;
+    htm.err = "Something went wrong status code:${response.statusCode}";
+    return htm;
+  }
 }

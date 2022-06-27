@@ -1,8 +1,10 @@
 import 'dart:convert';
 
-List<Inventory> inventoryFromJson(String str) => List<Inventory>.from(json.decode(str).map((x) => Inventory.fromJson(x)));
+List<Inventory> inventoryFromJson(String str) =>
+    List<Inventory>.from(json.decode(str).map((x) => Inventory.fromJson(x)));
 
-String inventoryToJson(List<Inventory> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String inventoryToJson(List<Inventory> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Inventory {
   Inventory({

@@ -28,7 +28,11 @@ class _UpdateInventoryState extends State<UpdateInventory> {
               submit: _submit,
               inv: inv
           ),
-          TextButton(onPressed: () {}, child: Text('remove'))
+          TextButton(
+              onPressed: () {
+                _delete(inv.id!);
+              },
+              child: Text('remove'))
         ],
       ),
     );
@@ -44,5 +48,25 @@ class _UpdateInventoryState extends State<UpdateInventory> {
         AlertHelper.showBar(context: context, msg: htm.err!, isError: true);
       }
     });
+  }
+
+  _delete(int id) async{
+    AlertHelper.alertPopup(
+        context: context,
+        title: 'Delete',
+        desc: 'Are you sure want to delete',
+        function: () {
+          LoadingProgress.inProgress(() async{
+            InventoryService inventoryService = InventoryService();
+            HttpStatusMsg htm = await inventoryService.delete(id);
+            if (htm.success) {
+              AlertHelper.showBar(context: context, msg: 'Delete complete');
+              Navigator.pop(context);
+            } else {
+              AlertHelper.showBar(context: context, msg: htm.err!, isError: true);
+            }
+          });
+        }
+    );
   }
 }

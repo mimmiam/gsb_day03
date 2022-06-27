@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.inventory),
-        title: Text('Home'),
+        title: Text('Inventory'),
       ),
       body: tabs[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(

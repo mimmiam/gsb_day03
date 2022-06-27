@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         '/update' : (context) => UpdateInventory(),
       },
       theme: ThemeData(
-          primarySwatch: Colors.lightGreen,
+        primarySwatch: Colors.lightGreen,
       ),
       home: FutureBuilder(
         future: LocalStorage().getToken(),
