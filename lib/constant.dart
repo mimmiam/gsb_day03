@@ -1,1 +1,1 @@
-String HOST = 'https://inventory-workshop-2022.herokuapp.com';
+String host = 'https://inventory-workshop-2022.herokuapp.com';

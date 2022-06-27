@@ -8,47 +8,45 @@ class UserForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _keyForm = GlobalKey<FormState>();
+    final keyForm = GlobalKey<FormState>();
     String username = '';
     String password = '';
-    return Container(
-      child: Form(
-        key: _keyForm,
-        child: Column(
-          children: [
-            ListTile(
-              title: TextFormField(
-                onSaved: (String? value) {
-                  username = value!;
-                },
-                validator: _validateString,
-                decoration: InputDecoration(labelText: 'Username'),
-              ),
+    return Form(
+      key: keyForm,
+      child: Column(
+        children: [
+          ListTile(
+            title: TextFormField(
+              onSaved: (String? value) {
+                username = value!;
+              },
+              validator: _validateString,
+              decoration: InputDecoration(labelText: 'Username'),
             ),
-            ListTile(
-              title: TextFormField(
-                onSaved: (String? value) {
-                  password = value!;
-                },
-                validator: _validateString,
-                obscureText: true,
-                decoration: InputDecoration(labelText: 'Password'),
-              ),
+          ),
+          ListTile(
+            title: TextFormField(
+              onSaved: (String? value) {
+                password = value!;
+              },
+              validator: _validateString,
+              obscureText: true,
+              decoration: InputDecoration(labelText: 'Password'),
             ),
-            ListTile(
-              title: ElevatedButton(
-                child: Text(buttonLabel),
-                onPressed: () {
-                  if (_keyForm.currentState!.validate()) {
-                    _keyForm.currentState!.save();
-                    print('user:$username pass:$password');
-                    submit(username,password);
-                  }
-                },
-              ),
-            )
-          ],
-        ),
+          ),
+          ListTile(
+            title: ElevatedButton(
+              child: Text(buttonLabel),
+              onPressed: () {
+                if (keyForm.currentState!.validate()) {
+                  keyForm.currentState!.save();
+                  print('user:$username pass:$password');
+                  submit(username,password);
+                }
+              },
+            ),
+          )
+        ],
       ),
     );
   }

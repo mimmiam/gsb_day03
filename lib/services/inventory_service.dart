@@ -11,7 +11,7 @@ class InventoryService{
   LocalStorage localStorage = LocalStorage();
 
   Future<List<Inventory?>?> getAll() async{
-    Uri uri = Uri.parse('$HOST/inventory/');
+    Uri uri = Uri.parse('$host/inventory/');
     String? token = await localStorage.getToken();
     if(token == null){
       return null;
@@ -29,7 +29,7 @@ class InventoryService{
   }
 
   Future<HttpStatusMsg> insert(Inventory inventory) async{
-    Uri uri = Uri.parse('$HOST/inventory/');
+    Uri uri = Uri.parse('$host/inventory/');
     String? token = await localStorage.getToken();
     HttpStatusMsg htm = HttpStatusMsg();
     if(token == null){
@@ -61,7 +61,7 @@ class InventoryService{
   }
 
   Future<HttpStatusMsg> update(Inventory inventory) async{
-    Uri uri = Uri.parse('$HOST/inventory/${inventory.id}');
+    Uri uri = Uri.parse('$host/inventory/${inventory.id}');
     String? token = await localStorage.getToken();
     HttpStatusMsg htm = HttpStatusMsg();
     if(token == null){
@@ -93,7 +93,7 @@ class InventoryService{
   }
 
   Future<HttpStatusMsg> delete(int id) async {
-    Uri uri = Uri.parse('$HOST/inventory/$id');
+    Uri uri = Uri.parse('$host/inventory/$id');
     String? token = await localStorage.getToken();
     HttpStatusMsg htm = HttpStatusMsg();
     if (token == null) {

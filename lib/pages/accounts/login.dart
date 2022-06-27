@@ -25,11 +25,9 @@ class _LoginScreenState extends State<LoginScreen> {
             margin: EdgeInsets.all(30),
             child: Image.asset('assets/images/vegetable.png'),
           ),
-          Container(
-            child: UserForm(
-              buttonLabel: 'Login',
-              submit: _submit,
-            ),
+          UserForm(
+            buttonLabel: 'Login',
+            submit: _submit,
           ),
           TextButton(
               onPressed: () {

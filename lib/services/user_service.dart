@@ -8,7 +8,7 @@ import '../constant.dart';
 class UserService{
 
   Future<HttpStatusMsg> register(String username, String password) async{
-    Uri uri = Uri.parse('$HOST/user/');
+    Uri uri = Uri.parse('$host/user/');
     final res = await http.post(uri,headers: {
       'Content-Type' : 'application/json'
     },
@@ -32,7 +32,7 @@ class UserService{
   }
 
   Future<HttpStatusMsg> login({required String username, required String password}) async{
-    Uri uri = Uri.parse('$HOST/token');
+    Uri uri = Uri.parse('$host/token');
     final res = await http.post(uri,
         headers:{'Content-Type' : 'application/x-www-form-urlencoded'},
         body:{

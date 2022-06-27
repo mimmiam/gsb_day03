@@ -21,11 +21,11 @@ class StockForm extends StatefulWidget {
 class _StockFormState extends State<StockForm> {
   @override
   Widget build(BuildContext context) {
-    var _keyForm = GlobalKey<FormState>();
+    var keyForm = GlobalKey<FormState>();
     return Container(
       margin: EdgeInsets.all(10),
       child: Form(
-        key: _keyForm,
+        key: keyForm,
         child: Column(
           children: [
             ListTile(
@@ -64,8 +64,8 @@ class _StockFormState extends State<StockForm> {
                 title: ElevatedButton(
                   child: Text(widget.buttonLabel),
                   onPressed: () {
-                    if (_keyForm.currentState!.validate()) {
-                      _keyForm.currentState!.save();
+                    if (keyForm.currentState!.validate()) {
+                      keyForm.currentState!.save();
                       widget.submit(widget.inv);
                     }
                   },
